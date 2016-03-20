@@ -1,0 +1,134 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.outer-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  .outer-container::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .outer-container .section-1 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-bottom: 1.2em; }
+    .outer-container .section-1:last-child {
+      margin-right: 0; }
+    .outer-container .section-1 > .left {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%;
+      background: #CCC; }
+      .outer-container .section-1 > .left:last-child {
+        margin-right: 0; }
+    .outer-container .section-1 > .right {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      background: #CCC; }
+      .outer-container .section-1 > .right:last-child {
+        margin-right: 0; }
+  .outer-container .section-2 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-bottom: 1.2em; }
+    .outer-container .section-2:last-child {
+      margin-right: 0; }
+    .outer-container .section-2 > .left {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      background: #CCC; }
+      .outer-container .section-2 > .left:last-child {
+        margin-right: 0; }
+    .outer-container .section-2 > .right {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%;
+      background: #CCC; }
+      .outer-container .section-2 > .right:last-child {
+        margin-right: 0; }
+  .outer-container .section-3 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-bottom: 1.2em; }
+    .outer-container .section-3:last-child {
+      margin-right: 0; }
+    .outer-container .section-3 > .left {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%; }
+      .outer-container .section-3 > .left:last-child {
+        margin-right: 0; }
+      .outer-container .section-3 > .left .sub-section-1 {
+        float: left;
+        display: block;
+        margin-right: 3.57866%;
+        width: 100%; }
+        .outer-container .section-3 > .left .sub-section-1:last-child {
+          margin-right: 0; }
+        .outer-container .section-3 > .left .sub-section-1 > .left {
+          float: left;
+          display: block;
+          margin-right: 3.57866%;
+          width: 48.21067%;
+          background: #CCC; }
+          .outer-container .section-3 > .left .sub-section-1 > .left:last-child {
+            margin-right: 0; }
+        .outer-container .section-3 > .left .sub-section-1 > .right {
+          float: left;
+          display: block;
+          margin-right: 3.57866%;
+          width: 48.21067%;
+          background: #CCC; }
+          .outer-container .section-3 > .left .sub-section-1 > .right:last-child {
+            margin-right: 0; }
+      .outer-container .section-3 > .left > .sub-section-2 {
+        float: left;
+        display: block;
+        margin-right: 3.57866%;
+        width: 100%;
+        background: #CCC;
+        margin-top: 1.2em; }
+        .outer-container .section-3 > .left > .sub-section-2:last-child {
+          margin-right: 0; }
+    .outer-container .section-3 > .right {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-bottom: 1.2em; }
+      .outer-container .section-3 > .right:last-child {
+        margin-right: 0; }
+      .outer-container .section-3 > .right .sub-section-1 {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 100%;
+        background: #CCC; }
+        .outer-container .section-3 > .right .sub-section-1:last-child {
+          margin-right: 0; }
+      .outer-container .section-3 > .right > .sub-section-2 {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 100%;
+        background: #CCC;
+        margin-top: 1.2em; }
+        .outer-container .section-3 > .right > .sub-section-2:last-child {
+          margin-right: 0; }

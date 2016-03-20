@@ -1,0 +1,86 @@
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+
+.outer-container {
+  @include outer-container;
+
+  .section-1 {
+    @include span-columns(12);
+    margin-bottom: 1.2em;
+
+    >.left {
+      @include span-columns(8);
+      background: #CCC;
+    }
+
+    >.right {
+      @include span-columns(4);
+      background: #CCC;
+    }
+  }
+  
+  .section-2 {
+    @include span-columns(12);
+    margin-bottom: 1.2em;
+
+    >.left {
+      @include span-columns(4);
+      background: #CCC;
+
+    }
+
+    >.right {
+      @include span-columns(8);
+      background: #CCC;
+      
+    }
+  }
+
+  .section-3 {
+    @include span-columns(12);
+    margin-bottom: 1.2em;
+
+    >.left {
+      @include span-columns(8 of 12);
+
+
+      .sub-section-1 {
+        @include span-columns(8 of 8);
+
+
+        >.left {
+          @include span-columns(4 of 8);
+          background: #CCC;
+        }
+
+        >.right {
+          @include span-columns(4 of 8);
+          background: #CCC;
+        }
+      }
+
+      >.sub-section-2 {
+        @include span-columns(8 of 8);
+        background: #CCC;
+        margin-top: 1.2em;
+      }
+    }
+
+    >.right {
+      @include span-columns(4 of 12);
+      margin-bottom: 1.2em;
+
+      .sub-section-1 {
+        @include span-columns(4 of 4);
+        background: #CCC;
+      }
+
+      >.sub-section-2 {
+        @include span-columns(4 of 4);
+        background: #CCC;
+        margin-top: 1.2em;
+
+      }
+    }
+  }
+}
