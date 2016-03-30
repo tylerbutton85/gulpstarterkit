@@ -248,14 +248,16 @@ hr {
    ========================================================================== */
 
 /**
- * Change font properties to `inherit` in all browsers (opinionated).
+ * 1. Change font properties to `inherit` in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
  */
 
 button,
 input,
 select,
 textarea {
-  font: inherit;
+  font: inherit; /* 1 */
+  margin: 0; /* 2 */
 }
 
 /**
@@ -279,44 +281,13 @@ select { /* 2 */
 }
 
 /**
- * Remove the margin in Safari.
- * 1. Remove the margin in Firefox and Safari.
- */
-
-button,
-input,
-select,
-textarea { /* 1 */
-  margin: 0;
-}
-
-/**
- * Remove the inheritence of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritence of text transform in Firefox.
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
  */
 
 button,
 select { /* 1 */
   text-transform: none;
-}
-
-/**
- * Change the cursor in all browsers (opinionated).
- */
-
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  cursor: pointer;
-}
-
-/**
- * Restore the default cursor to disabled elements unset by the previous rule.
- */
-
-[disabled] {
-  cursor: default;
 }
 
 /**

@@ -1,1 +1,7 @@
-a-library.js
+var foo = {
+  bar: function() {
+
+  }
+};
+
+foo.bar();

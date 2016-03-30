@@ -2,8 +2,10 @@
 //================================================= 
 
 var gulp = require('gulp');
-
-
+// jshint
+var jshint = require('gulp-jshint');
+// jshint stylish
+var stylish = require('jshint-stylish');
 // Requires the gulp-sass plugin
 var sass = require('gulp-sass');
 // JS & CSS concatenation
@@ -24,17 +26,6 @@ var runSequence = require('run-sequence');
 var sassLint = require('gulp-sass-lint');
 
 
-
-
-gulp.task('sass', function() {
-  return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
-    .pipe(sass())
-    .pipe(gulp.dest('app/css'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-});
-
 //Tasks
 //================================================= 
 
@@ -53,6 +44,22 @@ gulp.task('watch', ['browserSync', 'sass'], function (){
   gulp.watch('app/js/**/*.js', browserSync.reload); 
 });
 
+gulp.task('sass', function() {
+  return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
+    .pipe(sass())
+    .pipe(gulp.dest('app/css'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+}); 
+
+gulp.task('sassLinter', function () {
+  gulp.src('app/scss/**/*.scss')
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
+});
+
 gulp.task('useref', function(){
   return gulp.src('app/*.html')
     .pipe(useref())
@@ -62,7 +69,6 @@ gulp.task('useref', function(){
     .pipe(gulp.dest('public'))
 });
 
-// Read more https://www.npmjs.com/package/gulp-imagemin
 gulp.task('images', function(){
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
   // Caching images that ran through imagemin
@@ -72,21 +78,20 @@ gulp.task('images', function(){
   .pipe(gulp.dest('public/images'))
 });
 
-gulp.task('fonts', function() {
+gulp.task('fonts', function(){
   return gulp.src('app/fonts/**/*')
-  .pipe(gulp.dest('public/fonts'))
+    .pipe(gulp.dest('public/fonts'))
 })
 
 gulp.task('clean:public', function() {
   return del.sync('public');
 })
 
-gulp.task('sassLinter', function () {
-  gulp.src('app/scss/**/*.scss')
-    .pipe(sassLint())
-    .pipe(sassLint.format())
-    .pipe(sassLint.failOnError())
-});
+gulp.task('jshint', function(){
+  return gulp.src('app/js/**/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish));
+})
 
 
 //Scripts
@@ -107,7 +112,7 @@ gulp.task('build', function (callback) {
 
 gulp.task('debug', function (callback) {
   runSequence('clean:public', 
-    ['sassLinter'],
+    ['sassLinter', 'jshint'],
     callback
   )
 })

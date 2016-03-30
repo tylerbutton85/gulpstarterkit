@@ -1,1 +1,7 @@
-main.js
+var foo = {
+  bar: function() {
+
+  }
+};
+
+foo.bar();
