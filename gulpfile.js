@@ -59,7 +59,7 @@ gulp.task('useref', function(){
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('public'))
 });
 
 // Read more https://www.npmjs.com/package/gulp-imagemin
@@ -69,16 +69,16 @@ gulp.task('images', function(){
   .pipe(cache(imagemin({
       interlaced: true
     })))
-  .pipe(gulp.dest('dist/images'))
+  .pipe(gulp.dest('public/images'))
 });
 
 gulp.task('fonts', function() {
   return gulp.src('app/fonts/**/*')
-  .pipe(gulp.dest('dist/fonts'))
+  .pipe(gulp.dest('public/fonts'))
 })
 
-gulp.task('clean:dist', function() {
-  return del.sync('dist');
+gulp.task('clean:public', function() {
+  return del.sync('public');
 })
 
 gulp.task('sassLinter', function () {
@@ -92,21 +92,23 @@ gulp.task('sassLinter', function () {
 //Scripts
 //================================================= 
 
-
-
-gulp.task('build', function (callback) {
-  runSequence('clean:dist', 
-    ['sass', 'useref', 'images', 'fonts', 'sassLinter'],
-    callback
-  )
-})
-
-gulp.task('default', function (callback) {
+gulp.task('watch', function (callback) {
   runSequence(['sass','browserSync', 'watch'],
     callback
   )
 })
 
+gulp.task('build', function (callback) {
+  runSequence('clean:public', 
+    ['sass', 'useref', 'images', 'fonts'],
+    callback
+  )
+})
 
-
+gulp.task('debug', function (callback) {
+  runSequence('clean:public', 
+    ['sassLinter'],
+    callback
+  )
+})
 
